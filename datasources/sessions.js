@@ -12,8 +12,8 @@ class SessionsAPI extends DataSource {
 
     }
 
-    getSessions() {
-        return sessions;
+    getSessions(args) {
+        return _.filter(sessions, args);
     }
 
     getSessionById(id) {
