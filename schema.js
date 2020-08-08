@@ -29,7 +29,8 @@ type Session {
     day: String
     format: String
     track: String @deprecated(reason: "This will go away soon!")
-    level: String
+    level: String,
+    speakers: [Speaker]
 }
 
 type Speaker {
