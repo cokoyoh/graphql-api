@@ -14,10 +14,12 @@ type Query {
         track: String
         level: String
     ) : [Session],
-    sessionById(id: ID): Session
+    sessionById(id: ID): Session,
+    speakers: [Speaker]
+    speakerById(id: ID): Speaker
 }
 
-type Session{
+type Session {
     id: ID!
     title: String!
     description: String
@@ -28,4 +30,12 @@ type Session{
     format: String
     track: String @deprecated(reason: "This will go away soon!")
     level: String
-}`;
+}
+
+type Speaker {
+    id: ID!
+    bio: String
+    name: String
+    sessions: [Session]
+}
+`;
