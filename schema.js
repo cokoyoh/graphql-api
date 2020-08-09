@@ -19,6 +19,19 @@ type Query {
     speakerById(id: ID): Speaker
 }
 
+input SessionInput {
+    title: String!
+    description: String
+    startAt: String
+    endsAt: String
+    room: String
+    day: String
+    format: String
+    track: String
+    level: String,
+    fevorite: Boolean
+}
+
 type Session {
     id: ID!
     title: String!
@@ -43,5 +56,6 @@ type Speaker {
 
 type Mutation {
     toggleFavoriteSession(id: ID): Session
+    addNewSession(session: SessionInput): Session
 }
 `;
