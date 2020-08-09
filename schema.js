@@ -30,6 +30,7 @@ type Session {
     format: String
     track: String @deprecated(reason: "This will go away soon!")
     level: String,
+    fevorite: Boolean
     speakers: [Speaker]
 }
 
@@ -38,5 +39,9 @@ type Speaker {
     bio: String
     name: String
     sessions: [Session]
+}
+
+type Mutation {
+    toggleFavoriteSession(id: ID): Session
 }
 `;
