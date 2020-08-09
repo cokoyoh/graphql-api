@@ -30,7 +30,7 @@ input SessionInput {
     track: String
     level: String,
     fevorite: Boolean
-}
+} 
 
 type Session {
     id: ID!
