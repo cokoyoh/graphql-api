@@ -18,6 +18,7 @@ class SessionsAPI extends DataSource {
 
     getSessionById(id) {
         const session = _.filter(sessions, { id: parseInt(id) });
+        throw new Error()
         return session[0]
     }
 
