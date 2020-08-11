@@ -18,7 +18,7 @@ class SessionsAPI extends DataSource {
 
     getSessionById(id) {
         const session = _.filter(sessions, { id: parseInt(id) });
-        return session[0]
+        return session[0];
     }
 
     toggleFavoriteSession(id) {

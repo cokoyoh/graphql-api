@@ -1,4 +1,4 @@
-const Query = require('./resolvers/qu ery');
+const Query = require('./resolvers/query');
 const Session = require('./resolvers/session');
 const Mutation = require('./resolvers/mutation');
 
