@@ -1,9 +1,8 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, ApolloError } = require('apollo-server');
 const SessionsAPI = require('./datasources/sessions');
 const SpeakersAPI = require('./datasources/speakers');
 const typeDefs = require('./schema.js');
 const resolvers = require('./resolvers.js');
-const { errors } = require('./errors/internal-server-error');
 
 const dataSources = () => ({
     sessionsAPI: new SessionsAPI(),
@@ -16,7 +15,14 @@ const server = new ApolloServer({
     dataSources,
     debug: false,
     formatError: (error) => {
-        errors.internalServerError(error);
+        if (error.extensions.code == 'INTERNAL_SERVER_ERROR') {
+            return new ApolloError(
+                "We are experiencing some errors on our end", "ERROR", {
+                    token: "unique_token"
+                }
+            )
+        }
+        return error;
     }
 });
 
